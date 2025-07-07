@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application - The Living Stone Foundation</title>
+    <meta name="description" content="Apply for a position at The Living Stone Foundation">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .application-form {
+            background: #f8f9fa;
+            padding: 60px 0;
+        }
+        
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .form-section {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .form-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        
+        .section-title {
+            color: #667eea;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .form-row-three {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+        }
+        
+        .required {
+            color: #dc3545;
+        }
+        
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .file-upload {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        .file-input {
+            position: absolute;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+        
+        .file-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px;
+            border: 2px dashed #667eea;
+            border-radius: 8px;
+            background: #f8f9ff;
+            color: #667eea;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .file-label:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        .reference-group {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .reference-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .checkbox-input {
+            width: 18px;
+            height: 18px;
+            accent-color: #667eea;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 16px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            width: 100%;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .form-note {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid #2196f3;
+        }
+        
+        .signature-pad {
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            background: white;
+            cursor: crosshair;
+        }
+        
+        .signature-controls {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .clear-btn {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .form-row,
+            .form-row-three {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-container {
+                margin: 20px;
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html">
+                        <img src="assets/images/Living_Stone_LOGO_with_Name-removebg-preview.png" alt="The Living Stone Foundation" class="logo">
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="solutions.html" class="nav-link">Solutions</a></li>
+                    <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li class="nav-item"><a href="careers.html" class="nav-link active">Careers</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="nav-cta">
+                    <a href="contact.html" class="btn btn-primary">Schedule Consultation</a>
+                </div>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Job Application</h1>
+            <p class="page-subtitle">Join our team of AI innovators and help shape the future</p>
+        </div>
+    </section>
+
+    <!-- Application Form -->
+    <section class="application-form">
+        <div class="container">
+            <div class="form-container">
+                <div class="form-note">
+                    <p><strong>Note:</strong> All fields marked with <span class="required">*</span> are required. Please ensure all information is accurate and complete before submitting your application.</p>
+                </div>
+
+                <form id="applicationForm" enctype="multipart/form-data">
+                    <!-- Basic Information -->
+                    <div class="form-section">
+                        <h2 class="section-title">
+                            <i class="fas fa-user"></i>
+                            Basic Information
+                        </h2>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">First Name <span class="required">*</span></label>
+                                <input type="text" name="firstName" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Last Name <span class="required">*</span></label>
+                                <input type="text" name="lastName" class="form-input" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Email Address <span class="required">*</span></label>
+                                <input type="email" name="email" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Phone Number <span class="required">*</span></label>
+                                <input type="tel" name="phone" class="form-input" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Address <span class="required">*</span></label>
+                            <input type="text" name="address" class="form-input" placeholder="Street Address" required>
+                        </div>
+                        
+                        <div class="form-row-three">
+                            <div class="form-group">
+                                <label class="form-label">City <span class="required">*</span></label>
+                                <input type="text" name="city" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">State/Province <span class="required">*</span></label>
+                                <input type="text" name="state" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">ZIP/Postal Code <span class="required">*</span></label>
+                                <input type="text" name="zipCode" class="form-input" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Position Applied For <span class="required">*</span></label>
+                            <select name="position" class="form-select" required>
+                                <option value="">Select a position</option>
+                                <option value="Senior AI Engineer">Senior AI Engineer</option>
+                                <option value="Machine Learning Researcher">Machine Learning Researcher</option>
+                                <option value="AI Product Manager">AI Product Manager</option>
+                                <option value="Data Scientist">Data Scientist</option>
+                                <option value="DevOps Engineer">DevOps Engineer</option>
+                                <option value="Business Development Manager">Business Development Manager</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Work History -->
+                    <div class="form-section">
+                        <h2 class="section-title">
+                            <i class="fas fa-briefcase"></i>
+                            Work History
+                        </h2>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Current/Most Recent Position <span class="required">*</span></label>
+                            <input type="text" name="currentPosition" class="form-input" required>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Company Name <span class="required">*</span></label>
+                                <input type="text" name="currentCompany" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Years of Experience <span class="required">*</span></label>
+                                <select name="experience" class="form-select" required>
+                                    <option value="">Select experience level</option>
+                                    <option value="0-1">0-1 years</option>
+                                    <option value="2-3">2-3 years</option>
+                                    <option value="4-5">4-5 years</option>
+                                    <option value="6-10">6-10 years</option>
+                                    <option value="10+">10+ years</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Brief Description of Current Role <span class="required">*</span></label>
+                            <textarea name="currentRoleDescription" class="form-textarea" placeholder="Describe your current responsibilities and achievements..." required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Previous Work Experience</label>
+                            <textarea name="previousExperience" class="form-textarea" placeholder="List your previous positions, companies, and key achievements..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Education -->
+                    <div class="form-section">
+                        <h2 class="section-title">
+                            <i class="fas fa-graduation-cap"></i>
+                            Education
+                        </h2>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Highest Degree <span class="required">*</span></label>
+                                <select name="degree" class="form-select" required>
+                                    <option value="">Select degree</option>
+                                    <option value="High School">High School Diploma</option>
+                                    <option value="Associate">Associate Degree</option>
+                                    <option value="Bachelor">Bachelor's Degree</option>
+                                    <option value="Master">Master's Degree</option>
+                                    <option value="PhD">PhD</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Field of Study <span class="required">*</span></label>
+                                <input type="text" name="fieldOfStudy" class="form-input" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Institution <span class="required">*</span></label>
+                                <input type="text" name="institution" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Graduation Year <span class="required">*</span></label>
+                                <input type="number" name="graduationYear" class="form-input" min="1950" max="2030" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Additional Education/Certifications</label>
+                            <textarea name="additionalEducation" class="form-textarea" placeholder="List any additional degrees, certifications, courses, or training..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Eligibility & Compensation -->
+                    <div class="form-section">
+                        <h2 class="section-title">
+                            <i class="fas fa-check-circle"></i>
+                            Eligibility & Compensation
+                        </h2>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Are you legally authorized to work in the United States? <span class="required">*</span></label>
+                            <select name="workAuthorization" class="form-select" required>
+                                <option value="">Select option</option>
+                                <option value="Yes - US Citizen">Yes - US Citizen</option>
+                                <option value="Yes - Permanent Resident">Yes - Permanent Resident</option>
+                                <option value="Yes - Work Visa">Yes - Work Visa</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Do you require sponsorship for employment visa status? <span class="required">*</span></label>
+                            <select name="sponsorshipRequired" class="form-select" required>
+                                <option value="">Select option</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Expected Salary Range <span class="required">*</span></label>
+                                <select name="salaryRange" class="form-select" required>
+                                    <option value="">Select range</option>
+                                    <option value="$50,000 - $70,000">$50,000 - $70,000</option>
+                                    <option value="$70,000 - $90,000">$70,000 - $90,000</option>
+                                    <option value="$90,000 - $120,000">$90,000 - $120,000</option>
+                                    <option value="$120,000 - $150,000">$120,000 - $150,000</option>
+                                    <option value="$150,000 - $200,000">$150,000 - $200,000</option>
+                                    <option value="$200,000+">$200,000+</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Available Start Date <span class="required">*</span></label>
+                                <input type="date" name="startDate" class="form-input" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Documents -->
+                    <div class="form-section">
+                        <h2 class="section-title">
+                            <i class="fas fa-file-upload"></i>
+                            Required Documents
+                        </h2>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Resume/CV <span class="required">*</span></label>
+                            <div class="file-upload">
+                                <input type="file" name="resume" class="file-input" accept=".pdf,.doc,.docx" required>
+                                <label class="file-label">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    Click to upload your resume (PDF, DOC, DOCX)
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Cover Letter <span class="required">*</span></label>
+                            <div class="file-upload">
+                                <input type="file" name="coverLetter" class="file-input" accept=".pdf,.doc,.docx" required>
+                                <label class="file-label">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    Click to upload your cover letter (PDF, DOC, DOCX)
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Transcripts (if recent graduate)</label>
+                            <div class="file-upload">
+                                <input type="file" name="transcripts" class="file-input" accept=".pdf,.doc,.docx" multiple>
+                                <label class="file-label">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    Click to upload transcripts (PDF, DOC, DOCX)
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Certifications/Licenses</label>
+                            <div class="file-upload">
+                                <input type="file" name="certifications" class="file-input" accept=".pdf,.doc,.docx,.jpg,.png" multiple>
+                                <label class="file-label">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    Click to upload certifications (PDF, DOC, DOCX, JPG, PNG)
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Portfolio/Work Samples</label>
+                            <div class="file-upload">
+                                <input type="file" name="portfolio" class="file-input" accept=".pdf,.doc,.docx,.zip" multiple>
+                                <label class="file-label">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    Click to upload work samples (PDF, DOC, DOCX, ZIP)
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Writing Samples</label>
+                            <div class="file-upload">
+                                <input type="file" name="writingSamples" class="file-input" accept=".pdf,.doc,.docx" multiple>
+                                <label class="file-label">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    Click to upload writing samples (PDF, DOC, DOCX)
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- References -->
+                    <div class="form-section">
+                        <h2 class="section-title">
+                            <i class="fas fa-users"></i>
+                            Professional References
+                        </h2>
+                        
+                        <p style="margin-bottom: 20px; color: #666;">Please provide 2-4 professional references who can speak to your work experience and qualifications.</p>
+                        
+                        <div class="reference-group">
+                            <h4 class="reference-title">Reference 1 <span class="required">*</span></h4>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Full Name <span class="required">*</span></label>
+                                    <input type="text" name="ref1Name" class="form-input" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Title/Position <span class="required">*</span></label>
+                                    <input type="text" name="ref1Title" class="form-input" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Company <span class="required">*</span></label>
+                                    <input type="text" name="ref1Company" class="form-input" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Relationship <span class="required">*</span></label>
+                                    <input type="text" name="ref1Relationship" class="form-input" placeholder="e.g., Former Manager, Colleague" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Email <span class="required">*</span></label>
+                                    <input type="email" name="ref1Email" class="form-input" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Phone <span class="required">*</span></label>
+                                    <input type="tel" name="ref1Phone" class="form-input" required>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="reference-group">
+                            <h4 class="reference-title">Reference 2 <span class="required">*</span></h4>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Full Name <span class="required">*</span></label>
+                                    <input type="text" name="ref2Name" class="form-input" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Title/Position <span class="required">*</span></label>
+                                    <input type="text" name="ref2Title" class="form-input" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Company <span class="required">*</span></label>
+                                    <input type="text" name="ref2Company" class="form-input" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Relationship <span class="required">*</span></label>
+                                    <input type="text" name="ref2Relationship" class="form-input" placeholder="e.g., Former Manager, Colleague" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Email <span class="required">*</span></label>
+                                    <input type="email" name="ref2Email" class="form-input" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Phone <span class="required">*</span></label>
+                                    <input type="tel" name="ref2Phone" class="form-input" required>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="reference-group">
+                            <h4 class="reference-title">Reference 3 (Optional)</h4>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Full Name</label>
+                                    <input type="text" name="ref3Name" class="form-input">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Title/Position</label>
+                                    <input type="text" name="ref3Title" class="form-input">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Company</label>
+                                    <input type="text" name="ref3Company" class="form-input">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Relationship</label>
+                                    <input type="text" name="ref3Relationship" class="form-input" placeholder="e.g., Former Manager, Colleague">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Email</label>
+                                    <input type="email" name="ref3Email" class="form-input">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Phone</label>
+                                    <input type="tel" name="ref3Phone" class="form-input">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="reference-group">
+                            <h4 class="reference-title">Reference 4 (Optional)</h4>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Full Name</label>
+                                    <input type="text" name="ref4Name" class="form-input">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Title/Position</label>
+                                    <input type="text" name="ref4Title" class="form-input">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Company</label>
+                                    <input type="text" name="ref4Company" class="form-input">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Relationship</label>
+                                    <input type="text" name="ref4Relationship" class="form-input" placeholder="e.g., Former Manager, Colleague">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Email</label>
+                                    <input type="email" name="ref4Email" class="form-input">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Phone</label>
+                                    <input type="tel" name="ref4Phone" class="form-input">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Proof -->
+                    <div class="form-section">
+                        <h2 class="section-title">
+                            <i class="fas fa-share-alt"></i>
+                            Social Proof & Online Presence
+                        </h2>
+                        
+                        <div class="form-group">
+                            <label class="form-label">LinkedIn Profile <span class="required">*</span></label>
+                            <input type="url" name="linkedinProfile" class="form-input" placeholder="https://linkedin.com/in/yourprofile" required>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">GitHub Profile</label>
+                                <input type="url" name="githubProfile" class="form-input" placeholder="https://github.com/yourusername">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Personal Website/Portfolio</label>
+                                <input type="url" name="personalWebsite" class="form-input" placeholder="https://yourwebsite.com">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Twitter/X Profile</label>
+                                <input type="url" name="twitterProfile" class="form-input" placeholder="https://twitter.com/yourusername">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Instagram Profile</label>
+                                <input type="url" name="instagramProfile" class="form-input" placeholder="https://instagram.com/yourusername">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">TikTok Profile</label>
+                            <input type="url" name="tiktokProfile" class="form-input" placeholder="https://tiktok.com/@yourusername">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Other Professional Profiles</label>
+                            <textarea name="otherProfiles" class="form-textarea" placeholder="List any other relevant professional profiles, publications, or online presence..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Additional Information -->
+                    <div class="form-section">
+                        <h2 class="section-title">
+                            <i class="fas fa-info-circle"></i>
+                            Additional Information
+                        </h2>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Why do you want to work at The Living Stone Foundation? <span class="required">*</span></label>
+                            <textarea name="whyJoin" class="form-textarea" placeholder="Tell us what attracts you to our company and this role..." required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">What unique value would you bring to our team? <span class="required">*</span></label>
+                            <textarea name="uniqueValue" class="form-textarea" placeholder="Describe your unique skills, experiences, or perspectives..." required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Additional Comments or Information</label>
+                            <textarea name="additionalComments" class="form-textarea" placeholder="Any additional information you'd like us to know..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Signature -->
+                    <div class="form-section">
+                        <h2 class="section-title">
+                            <i class="fas fa-signature"></i>
+                            Electronic Signature
+                        </h2>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Full Name (Electronic Signature) <span class="required">*</span></label>
+                            <input type="text" name="signature" class="form-input" placeholder="Type your full name as your electronic signature" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Date <span class="required">*</span></label>
+                            <input type="date" name="signatureDate" class="form-input" required>
+                        </div>
+                        
+                        <div class="checkbox-group">
+                            <input type="checkbox" name="agreement" class="checkbox-input" id="agreement" required>
+                            <label for="agreement" class="form-label">
+                                I certify that all information provided in this application is true and complete to the best of my knowledge. I understand that any false information may lead to rejection of my application or termination of employment if hired. <span class="required">*</span>
+                            </label>
+                        </div>
+                        
+                        <div class="checkbox-group">
+                            <input type="checkbox" name="backgroundCheck" class="checkbox-input" id="backgroundCheck" required>
+                            <label for="backgroundCheck" class="form-label">
+                                I authorize The Living Stone Foundation to conduct background checks and contact my references as part of the hiring process. <span class="required">*</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i>
+                        Submit Application
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="assets/images/Living_Stone_LOGO_with_Name-removebg-preview.png" alt="The Living Stone Foundation">
+                    </div>
+                    <p class="footer-description">
+                        Pioneering the future of artificial intelligence through innovative solutions and strategic partnerships.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> info@thelivingstonefoundation.com</p>
+                        <p><i class="fas fa-phone"></i> +1 (540) 998-9766</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Washington, DC</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 The Living Stone Foundation. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // File upload feedback
+        document.querySelectorAll('.file-input').forEach(input => {
+            input.addEventListener('change', function() {
+                const label = this.nextElementSibling;
+                const fileCount = this.files.length;
+                if (fileCount > 0) {
+                    label.innerHTML = `<i class="fas fa-check-circle"></i> ${fileCount} file(s) selected`;
+                    label.style.background = '#28a745';
+                    label.style.color = 'white';
+                } else {
+                    label.innerHTML = `<i class="fas fa-cloud-upload-alt"></i> Click to upload`;
+                    label.style.background = '#f8f9ff';
+                    label.style.color = '#667eea';
+                }
+            });
+        });
+
+        // Set today's date as default for signature date
+        document.querySelector('input[name="signatureDate"]').valueAsDate = new Date();
+
+        // Form submission
+        document.getElementById('applicationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show loading state
+            const submitBtn = document.querySelector('.submit-btn');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+            submitBtn.disabled = true;
+            
+            // Create FormData object
+            const formData = new FormData(this);
+            
+            // Submit to backend
+            fetch('/submit-application', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Application submitted successfully! We will review your application and contact you soon.');
+                    this.reset();
+                    // Reset file upload labels
+                    document.querySelectorAll('.file-label').forEach(label => {
+                        label.innerHTML = '<i class="fas fa-cloud-upload-alt"></i> Click to upload';
+                        label.style.background = '#f8f9ff';
+                        label.style.color = '#667eea';
+                    });
+                } else {
+                    alert('Error submitting application: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error submitting application. Please try again.');
+            })
+            .finally(() => {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            });
+        });
+
+        // Mobile menu toggle
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
+
