@@ -108,6 +108,7 @@ h1, h2, h3, h4, h5, h6 {
 .logo {
     height: 50px;
     width: auto;
+    object-fit: contain;
 }
 
 .nav-menu {
@@ -233,9 +234,11 @@ h1, h2, h3, h4, h5, h6 {
 .hero-logo {
     width: 300px;
     height: auto;
+    max-height: 300px;
     transition: all 0.4s ease;
     cursor: pointer;
     filter: drop-shadow(0 10px 30px rgba(102, 126, 234, 0.3));
+    object-fit: contain;
 }
 
 .hero-logo:hover {
@@ -295,6 +298,7 @@ h1, h2, h3, h4, h5, h6 {
     
     .hero-logo {
         width: 250px;
+        max-height: 250px;
     }
     
     .hero-stats {
@@ -330,9 +334,11 @@ h1, h2, h3, h4, h5, h6 {
 .hero-logo {
     width: 300px;
     height: auto;
+    max-height: 300px;
     transition: all 0.4s ease;
     cursor: pointer;
     filter: drop-shadow(0 10px 30px rgba(102, 126, 234, 0.3));
+    object-fit: contain;
 }
 
 .hero-logo:hover {
@@ -421,7 +427,9 @@ section {
 .about-logo {
     width: 200px;
     height: auto;
+    max-height: 200px;
     margin-bottom: 2rem;
+    object-fit: contain;
 }
 
 .value-props {
@@ -800,13 +808,12 @@ section {
 }
 
 /* Footer Logo */
-.footer-logo {
+.footer-logo img {
     height: 60px;        /* Fixed height */
     width: auto;         /* Proportional width */
+    max-width: 150px;    /* Max width for square logo */
     margin-bottom: 1rem; /* 16px space below logo */
-}
-
-    max-width: 250px;
+    object-fit: contain;
 }
 
 .footer-section h4 {
@@ -1989,7 +1996,9 @@ section {
     max-width: 300px;
     width: 100%;
     height: auto;
+    max-height: 300px;
     transition: transform 0.3s ease;
+    object-fit: contain;
 }
 
 .hero-visual-section .hero-logo:hover {
@@ -2342,25 +2351,7 @@ section {
     overflow: hidden;
 }
 
-.company-logos::before,
-.company-logos::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    width: 100px;
-    height: 100%;
-    background: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0));
-    z-index: 2;
-}
-
-.company-logos::before {
-    left: 0;
-}
-
-.company-logos::after {
-    right: 0;
-    background: linear-gradient(to left, rgba(255,255,255,1), rgba(255,255,255,0));
-}
+/* Black edges removed for cleaner look */
 
 /* Enhanced Gradient Text */
 .gradient-text {

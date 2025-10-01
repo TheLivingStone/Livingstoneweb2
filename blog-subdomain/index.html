@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Insights & Innovation Blog - The Living Stone Foundation</title>
+    <meta name="description" content="Explore thought leadership, case studies, tutorials, and the latest trends in artificial intelligence from The Living Stone Foundation.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="https://thelivingstonefoundation.com/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://thelivingstonefoundation.com/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://thelivingstonefoundation.com/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="https://thelivingstonefoundation.com/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        .blog-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 8rem 0 6rem;
+            text-align: center;
+            color: white;
+        }
+
+        .blog-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .blog-hero p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            opacity: 0.95;
+        }
+
+        .blog-search {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .blog-search input {
+            width: 100%;
+            padding: 1.25rem 4rem 1.25rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.125rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+
+        .blog-search button {
+            position: absolute;
+            right: 0.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 0.875rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .blog-search button:hover {
+            background: #5568d3;
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .featured-post {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            margin: -4rem auto 5rem;
+            max-width: 1200px;
+            position: relative;
+        }
+
+        .featured-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+
+        .featured-image {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem;
+        }
+
+        .featured-image i {
+            font-size: 10rem;
+            color: #667eea;
+            opacity: 0.3;
+        }
+
+        .featured-text {
+            padding: 4rem;
+        }
+
+        .featured-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .featured-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+            line-height: 1.3;
+        }
+
+        .featured-text p {
+            font-size: 1.125rem;
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .featured-meta {
+            display: flex;
+            gap: 2rem;
+            color: #999;
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+        }
+
+        .category-filter {
+            background: #f8f9fa;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .category-tab {
+            background: white;
+            border: 2px solid #e0e0e0;
+            padding: 0.875rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .category-tab:hover {
+            border-color: #667eea;
+            color: #667eea;
+            transform: translateY(-2px);
+        }
+
+        .category-tab.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-color: transparent;
+        }
+
+        .blog-grid {
+            padding: 5rem 0;
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+        }
+
+        .blog-image {
+            height: 220px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .blog-image i {
+            font-size: 4rem;
+            color: #667eea;
+            opacity: 0.3;
+        }
+
+        .blog-category {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #667eea;
+            letter-spacing: 0.5px;
+        }
+
+        .blog-content {
+            padding: 2rem;
+        }
+
+        .blog-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+            line-height: 1.4;
+        }
+
+        .blog-content p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #999;
+            font-size: 0.875rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+            margin-bottom: 1rem;
+        }
+
+        .blog-link {
+            color: #667eea;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s ease;
+        }
+
+        .blog-link:hover {
+            gap: 0.75rem;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 4rem;
+        }
+
+        .page-btn {
+            background: white;
+            border: 2px solid #e0e0e0;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .page-btn:hover {
+            border-color: #667eea;
+            color: #667eea;
+        }
+
+        .page-btn.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        @media (max-width: 768px) {
+            .blog-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .featured-content {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-image {
+                padding: 3rem;
+            }
+
+            .featured-text {
+                padding: 2rem;
+            }
+
+            .featured-text h2 {
+                font-size: 1.75rem;
+            }
+
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .category-tabs {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="https://thelivingstonefoundation.com">
+                        <img src="https://thelivingstonefoundation.com/images/LivingstoneFoundation-Logo-2025.png" alt="The Living Stone Foundation" class="logo">
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="https://thelivingstonefoundation.com" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="https://thelivingstonefoundation.com/about.html" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="https://thelivingstonefoundation.com/services.html" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="https://thelivingstonefoundation.com/solutions.html" class="nav-link">Solutions</a></li>
+                    <li class="nav-item"><a href="/" class="nav-link active">Blog</a></li>
+                    <li class="nav-item"><a href="https://thelivingstonefoundation.com/careers.html" class="nav-link">Careers</a></li>
+                    <li class="nav-item"><a href="https://thelivingstonefoundation.com/contact.html" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="nav-cta">
+                    <a href="https://thelivingstonefoundation.com/contact.html" class="btn btn-primary">Schedule Consultation</a>
+                </div>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Blog Hero -->
+    <section class="blog-hero">
+        <div class="container">
+            <h1>AI Insights & Innovation</h1>
+            <p>Explore thought leadership, case studies, and the latest trends in artificial intelligence from industry experts</p>
+            <div class="blog-search">
+                <input type="text" placeholder="Search articles, topics, or keywords..." id="searchInput">
+                <button type="button"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Post -->
+    <div class="container">
+        <article class="featured-post">
+            <div class="featured-content">
+                <div class="featured-image">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="featured-text">
+                    <span class="featured-badge"><i class="fas fa-star"></i> Featured Article</span>
+                    <h2>The Future of AI Agents in Enterprise: Beyond Automation</h2>
+                    <p>Discover how AI agents are revolutionizing business operations beyond simple automation, creating intelligent workflows that adapt and learn from your organization's unique needs.</p>
+                    <div class="featured-meta">
+                        <span><i class="fas fa-calendar"></i> December 20, 2024</span>
+                        <span><i class="fas fa-clock"></i> 8 min read</span>
+                        <span><i class="fas fa-user"></i> LSF Team</span>
+                    </div>
+                    <a href="post/ai-agents-enterprise-future.html" class="btn btn-primary btn-large">Read Full Article</a>
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <!-- Category Filter -->
+    <section class="category-filter">
+        <div class="container">
+            <div class="category-tabs">
+                <button class="category-tab active" data-category="all">All Posts</button>
+                <button class="category-tab" data-category="ai-insights">AI Insights</button>
+                <button class="category-tab" data-category="case-studies">Case Studies</button>
+                <button class="category-tab" data-category="industry-trends">Industry Trends</button>
+                <button class="category-tab" data-category="tutorials">Tutorials</button>
+                <button class="category-tab" data-category="technical">Technical</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Grid -->
+    <section class="blog-grid">
+        <div class="container">
+            <div class="articles-grid" id="articlesGrid">
+                <!-- Article 1: TechCorp Case Study -->
+                <article class="blog-card" data-category="case-studies">
+                    <div class="blog-image">
+                        <i class="fas fa-chart-line"></i>
+                        <span class="blog-category">Case Study</span>
+                    </div>
+                    <div class="blog-content">
+                        <h3>How TechCorp Reduced Operational Costs by 40% with Custom AI Agents</h3>
+                        <p>A detailed look at how we implemented intelligent automation solutions that transformed TechCorp's workflow efficiency and bottom line.</p>
+                        <div class="blog-meta">
+                            <span class="blog-date">December 15, 2024</span>
+                            <span class="blog-read-time">6 min read</span>
+                        </div>
+                        <a href="post/techcorp-case-study.html" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Article 2: LLM Guide -->
+                <article class="blog-card" data-category="ai-insights">
+                    <div class="blog-image">
+                        <i class="fas fa-brain"></i>
+                        <span class="blog-category">AI Insights</span>
+                    </div>
+                    <div class="blog-content">
+                        <h3>Understanding Large Language Models: A Business Leader's Guide</h3>
+                        <p>Demystifying LLMs and their practical applications in modern business environments, from customer service to content generation.</p>
+                        <div class="blog-meta">
+                            <span class="blog-date">December 10, 2024</span>
+                            <span class="blog-read-time">10 min read</span>
+                        </div>
+                        <a href="post/llm-business-guide.html" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Article 3: 2025 Predictions -->
+                <article class="blog-card" data-category="industry-trends">
+                    <div class="blog-image">
+                        <i class="fas fa-trending-up"></i>
+                        <span class="blog-category">Industry Trends</span>
+                    </div>
+                    <div class="blog-content">
+                        <h3>2025 AI Predictions: What Every Business Should Know</h3>
+                        <p>Our expert analysis of emerging AI trends and technologies that will shape business strategies in the coming year.</p>
+                        <div class="blog-meta">
+                            <span class="blog-date">December 5, 2024</span>
+                            <span class="blog-read-time">7 min read</span>
+                        </div>
+                        <a href="post/ai-predictions-2025.html" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Article 4: AI Integration Tutorial -->
+                <article class="blog-card" data-category="tutorials">
+                    <div class="blog-image">
+                        <i class="fas fa-code"></i>
+                        <span class="blog-category">Tutorial</span>
+                    </div>
+                    <div class="blog-content">
+                        <h3>Getting Started with AI Integration: A Step-by-Step Approach</h3>
+                        <p>A practical guide for businesses looking to implement their first AI solution, covering planning, execution, and measurement.</p>
+                        <div class="blog-meta">
+                            <span class="blog-date">November 28, 2024</span>
+                            <span class="blog-read-time">12 min read</span>
+                        </div>
+                        <a href="post/ai-integration-guide.html" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Article 5: Healthcare Case Study -->
+                <article class="blog-card" data-category="case-studies">
+                    <div class="blog-image">
+                        <i class="fas fa-hospital"></i>
+                        <span class="blog-category">Case Study</span>
+                    </div>
+                    <div class="blog-content">
+                        <h3>Revolutionizing Healthcare with AI: MedCenter's Digital Transformation</h3>
+                        <p>How we helped a major healthcare provider implement AI-driven patient management systems that improved care quality and efficiency.</p>
+                        <div class="blog-meta">
+                            <span class="blog-date">November 20, 2024</span>
+                            <span class="blog-read-time">9 min read</span>
+                        </div>
+                        <a href="post/medcenter-healthcare-ai.html" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Article 6: AI Security -->
+                <article class="blog-card" data-category="ai-insights">
+                    <div class="blog-image">
+                        <i class="fas fa-shield-alt"></i>
+                        <span class="blog-category">AI Insights</span>
+                    </div>
+                    <div class="blog-content">
+                        <h3>AI Security and Privacy: Building Trust in Intelligent Systems</h3>
+                        <p>Essential considerations for implementing secure AI solutions that protect sensitive data while delivering powerful business value.</p>
+                        <div class="blog-meta">
+                            <span class="blog-date">November 15, 2024</span>
+                            <span class="blog-read-time">8 min read</span>
+                        </div>
+                        <a href="post/ai-security-privacy.html" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Article 7: RAG Implementation -->
+                <article class="blog-card" data-category="technical">
+                    <div class="blog-image">
+                        <i class="fas fa-database"></i>
+                        <span class="blog-category">Technical</span>
+                    </div>
+                    <div class="blog-content">
+                        <h3>RAG Implementation: Building Intelligent Knowledge Systems</h3>
+                        <p>Deep dive into Retrieval-Augmented Generation and how it powers accurate, context-aware AI applications.</p>
+                        <div class="blog-meta">
+                            <span class="blog-date">November 10, 2024</span>
+                            <span class="blog-read-time">15 min read</span>
+                        </div>
+                        <a href="post/rag-implementation.html" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Article 8: AI ROI -->
+                <article class="blog-card" data-category="industry-trends">
+                    <div class="blog-image">
+                        <i class="fas fa-dollar-sign"></i>
+                        <span class="blog-category">Industry Trends</span>
+                    </div>
+                    <div class="blog-content">
+                        <h3>Measuring AI ROI: Beyond the Hype to Real Business Value</h3>
+                        <p>Practical frameworks for evaluating AI investments and demonstrating tangible returns to stakeholders.</p>
+                        <div class="blog-meta">
+                            <span class="blog-date">November 5, 2024</span>
+                            <span class="blog-read-time">10 min read</span>
+                        </div>
+                        <a href="post/ai-roi-measurement.html" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Article 9: AI Ethics -->
+                <article class="blog-card" data-category="ai-insights">
+                    <div class="blog-image">
+                        <i class="fas fa-balance-scale"></i>
+                        <span class="blog-category">AI Insights</span>
+                    </div>
+                    <div class="blog-content">
+                        <h3>AI Ethics in Business: Navigating Bias, Fairness, and Transparency</h3>
+                        <p>How to implement responsible AI practices that build trust and ensure fair outcomes for all stakeholders.</p>
+                        <div class="blog-meta">
+                            <span class="blog-date">October 28, 2024</span>
+                            <span class="blog-read-time">11 min read</span>
+                        </div>
+                        <a href="post/ai-ethics-business.html" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <button class="page-btn active">1</button>
+                <button class="page-btn">2</button>
+                <button class="page-btn">3</button>
+                <button class="page-btn">Next <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter-signup">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Stay Updated with AI Insights</h2>
+                <p>Get the latest articles, case studies, and industry insights delivered to your inbox weekly.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="https://thelivingstonefoundation.com/images/LivingstoneFoundation-Logo-2025-Transparent.png" alt="The Living Stone Foundation">
+                    </div>
+                    <p class="footer-description">
+                        Transforming businesses through innovative AI solutions and fostering the next generation of AI startups.
+                    </p>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-envelope"></i> info@thelivingstonefoundation.com</p>
+                        <p><i class="fas fa-phone"></i> +1 (540) 998-9766</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Washington, DC</p>
+                    </div>
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7343688705166995457" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://twitter.com/LivingStoneFdn" target="_blank">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://github.com/TheLivingStone" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://thelivingstonefoundation.com/services.html">Business Personal LLM</a></li>
+                        <li><a href="https://thelivingstonefoundation.com/services.html">Intelligent Automation</a></li>
+                        <li><a href="https://thelivingstonefoundation.com/services.html">AI Integration</a></li>
+                        <li><a href="https://thelivingstonefoundation.com/services.html">AI Agent Development</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://thelivingstonefoundation.com/about.html">About Us</a></li>
+                        <li><a href="https://thelivingstonefoundation.com/solutions.html">Solutions</a></li>
+                        <li><a href="https://thelivingstonefoundation.com/contact.html">Contact</a></li>
+                        <li><a href="https://thelivingstonefoundation.com/careers.html">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="/">Blog Home</a></li>
+                        <li><a href="/category/case-studies.html">Case Studies</a></li>
+                        <li><a href="/category/tutorials.html">Tutorials</a></li>
+                        <li><a href="https://thelivingstonefoundation.com/contact.html">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 The Living Stone Foundation. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="https://thelivingstonefoundation.com/privacy-policy.html">Privacy Policy</a>
+                    <a href="https://thelivingstonefoundation.com/terms-conditions.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://thelivingstonefoundation.com/script.js"></script>
+    <script>
+        // Category filtering
+        const categoryTabs = document.querySelectorAll('.category-tab');
+        const blogCards = document.querySelectorAll('.blog-card');
+
+        categoryTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Update active tab
+                categoryTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                const category = tab.getAttribute('data-category');
+
+                // Filter cards
+                blogCards.forEach(card => {
+                    if (category === 'all' || card.getAttribute('data-category') === category) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Simple search functionality
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+
+            blogCards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const description = card.querySelector('p').textContent.toLowerCase();
+
+                if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

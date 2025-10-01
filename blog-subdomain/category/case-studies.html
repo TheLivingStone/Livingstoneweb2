@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Studies - AI Insights Blog</title>
+    <meta name="description" content="Real-world AI implementation case studies and success stories from The Living Stone Foundation.">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="https://thelivingstonefoundation.com/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://thelivingstonefoundation.com/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://thelivingstonefoundation.com/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="https://thelivingstonefoundation.com/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        .category-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 6rem 0 4rem;
+            text-align: center;
+            color: white;
+        }
+
+        .category-hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .category-hero p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+
+        .breadcrumb {
+            padding: 2rem 0;
+            font-size: 0.95rem;
+        }
+
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 3rem;
+            padding: 3rem 0;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+        }
+
+        .blog-image {
+            height: 220px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .blog-image i {
+            font-size: 4rem;
+            color: #667eea;
+            opacity: 0.3;
+        }
+
+        .blog-category {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #667eea;
+        }
+
+        .blog-content {
+            padding: 2rem;
+        }
+
+        .blog-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .blog-content p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #999;
+            font-size: 0.875rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+            margin-bottom: 1rem;
+        }
+
+        .blog-link {
+            color: #667eea;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .category-hero h1 {
+                font-size: 2rem;
+            }
+
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="https://thelivingstonefoundation.com">
+                        <img src="https://thelivingstonefoundation.com/images/LivingstoneFoundation-Logo-2025.png" alt="The Living Stone Foundation" class="logo">
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="https://thelivingstonefoundation.com" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="https://thelivingstonefoundation.com/about.html" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="https://thelivingstonefoundation.com/services.html" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="https://thelivingstonefoundation.com/solutions.html" class="nav-link">Solutions</a></li>
+                    <li class="nav-item"><a href="/" class="nav-link active">Blog</a></li>
+                    <li class="nav-item"><a href="https://thelivingstonefoundation.com/careers.html" class="nav-link">Careers</a></li>
+                    <li class="nav-item"><a href="https://thelivingstonefoundation.com/contact.html" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="nav-cta">
+                    <a href="https://thelivingstonefoundation.com/contact.html" class="btn btn-primary">Schedule Consultation</a>
+                </div>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="category-hero">
+        <div class="container">
+            <h1><i class="fas fa-chart-line"></i> Case Studies</h1>
+            <p>Real-world AI implementation success stories and detailed analyses of transformative business outcomes</p>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="breadcrumb">
+            <a href="/">Blog Home</a> / <strong>Case Studies</strong>
+        </div>
+
+        <div class="articles-grid">
+            <article class="blog-card">
+                <div class="blog-image">
+                    <i class="fas fa-chart-line"></i>
+                    <span class="blog-category">Case Study</span>
+                </div>
+                <div class="blog-content">
+                    <h3>How TechCorp Reduced Operational Costs by 40% with Custom AI Agents</h3>
+                    <p>A detailed look at how we implemented intelligent automation solutions that transformed TechCorp's workflow efficiency and bottom line.</p>
+                    <div class="blog-meta">
+                        <span>December 15, 2024</span>
+                        <span>6 min read</span>
+                    </div>
+                    <a href="../post/techcorp-case-study.html" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-image">
+                    <i class="fas fa-hospital"></i>
+                    <span class="blog-category">Case Study</span>
+                </div>
+                <div class="blog-content">
+                    <h3>Revolutionizing Healthcare with AI: MedCenter's Digital Transformation</h3>
+                    <p>How we helped a major healthcare provider implement AI-driven patient management systems that improved care quality and efficiency.</p>
+                    <div class="blog-meta">
+                        <span>November 20, 2024</span>
+                        <span>9 min read</span>
+                    </div>
+                    <a href="../post/medcenter-healthcare-ai.html" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-image">
+                    <i class="fas fa-building"></i>
+                    <span class="blog-category">Case Study</span>
+                </div>
+                <div class="blog-content">
+                    <h3>Financial Services AI: 80% Processing Time Reduction</h3>
+                    <p>Comprehensive case study of implementing automated financial reporting and fraud detection systems at a mid-sized financial institution.</p>
+                    <div class="blog-meta">
+                        <span>October 15, 2024</span>
+                        <span>8 min read</span>
+                    </div>
+                    <a href="../post/financial-services-case-study.html" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="newsletter-signup" style="margin-top: 5rem;">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Get More Case Studies</h2>
+                <p>Subscribe to receive detailed case studies and implementation guides directly to your inbox.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="https://thelivingstonefoundation.com/images/LivingstoneFoundation-Logo-2025-Transparent.png" alt="The Living Stone Foundation">
+                    </div>
+                    <p class="footer-description">
+                        Transforming businesses through innovative AI solutions and fostering the next generation of AI startups.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4>Blog Categories</h4>
+                    <ul class="footer-links">
+                        <li><a href="/category/case-studies.html">Case Studies</a></li>
+                        <li><a href="/category/ai-insights.html">AI Insights</a></li>
+                        <li><a href="/category/industry-trends.html">Industry Trends</a></li>
+                        <li><a href="/category/tutorials.html">Tutorials</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://thelivingstonefoundation.com/about.html">About Us</a></li>
+                        <li><a href="https://thelivingstonefoundation.com/solutions.html">Solutions</a></li>
+                        <li><a href="https://thelivingstonefoundation.com/contact.html">Contact</a></li>
+                        <li><a href="https://thelivingstonefoundation.com/careers.html">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="/">Blog Home</a></li>
+                        <li><a href="https://thelivingstonefoundation.com/services.html">Services</a></li>
+                        <li><a href="https://thelivingstonefoundation.com/contact.html">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 The Living Stone Foundation. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://thelivingstonefoundation.com/script.js"></script>
+</body>
+</html>
